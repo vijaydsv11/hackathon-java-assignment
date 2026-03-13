@@ -1,5 +1,6 @@
 name: CI/CD Pipeline
 
+# Node.js 24 compatible workflow - Updated March 13, 2026
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
