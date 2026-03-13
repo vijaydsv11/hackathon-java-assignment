@@ -1,6 +1,10 @@
 name: CI/CD Pipeline
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 on:
+  workflow_dispatch:
   push:
     branches: [ main, master, develop ]
   pull_request:
@@ -13,8 +17,6 @@ jobs:
   build:
     name: Build and Test
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     
     strategy:
       matrix:
@@ -94,8 +96,6 @@ jobs:
   code-quality:
     name: Code Quality Checks
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     strategy:
       matrix:
         java-version: [ '17' ]
@@ -120,8 +120,6 @@ jobs:
   dependency-check:
     name: Dependency Security Check
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - name: Checkout code
